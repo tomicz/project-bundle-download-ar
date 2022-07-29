@@ -135,7 +135,22 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 8748f13fdd8ed4b6d9877fd2740bcb64, type: 2}
+  - {fileID: 1265635329517101718, guid: 6e8595c97cf8e4e65890aa22ecbf9939, type: 2}
+  - {fileID: -1263309182606225017, guid: 4d6373fc9f30242b795e5e00a36b5e38, type: 2}
+  - {fileID: 0}
+  - {fileID: 4800000, guid: e7c77f6eaab324a819efdc13b8125a39, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -526,7 +541,8 @@ PlayerSettings:
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
   enableCrashReportAPI: 0
-  cameraUsageDescription: 
+  cameraUsageDescription: This application requires access to your device camera
+    in order to display AR content.
   locationUsageDescription: 
   microphoneUsageDescription: 
   bluetoothUsageDescription: 
