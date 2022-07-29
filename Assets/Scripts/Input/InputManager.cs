@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            OnButtonPressDownEvent.Invoke();
+            OnButtonPressDownEvent?.Invoke();
         }
     }
 }
