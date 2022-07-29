@@ -30,11 +30,11 @@ namespace Immersed.AR
 
             if (_raycaster.IsTargetHit)
             {
-                OnPointerEnterEvent.Invoke(hitPosition);
+                OnPointerEnterEvent?.Invoke(hitPosition);
             }
             else
             {
-                OnPointerExitEvent.Invoke();
+                OnPointerExitEvent?.Invoke();
             }
         }
 
