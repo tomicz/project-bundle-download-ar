@@ -14,6 +14,16 @@ namespace Immersed.AR
             _grabbedItem.SetParent(transform);
         }
 
+        public void GrabLastItem()
+        {
+            _grabbedItem.SetParent(transform);
+        }
+
+        public void ReleaseItem()
+        {
+            _grabbedItem.SetParent(_grabbedItemOriginalParent);
+        }
+
         public void RemoveItem()
         {
             _grabbedItem.SetParent(_grabbedItemOriginalParent);
