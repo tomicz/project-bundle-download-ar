@@ -1,3 +1,4 @@
+using System;
 using Immersed.UI;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ namespace Immersed.AR
 {
     public class ARContentPlacerController : MonoBehaviour
     {
+        public Action OnContentPlacedEvent;
+
         [Header("Dependencies")]
         [SerializeField] private InputManager _inputManager;
         [SerializeField] private ARPointer _arPointer;
@@ -31,6 +34,10 @@ namespace Immersed.AR
         {
             _arItemContainerController.GrabItem(transform);
         }
+
+        public void Enable() => gameObject.SetActive(true);
+
+        public void Disable() => gameObject.SetActive(false);
 
         private void HandleOnButtonPressedEvent()
         {
@@ -60,6 +67,7 @@ namespace Immersed.AR
 
         private void PlaceItemOntoGround()
         {
+            OnContentPlacedEvent?.Invoke();
             _arItemContainerController.RemoveItem();
         }
 
