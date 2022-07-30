@@ -564,7 +564,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1561229753}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 875007168}
+        m_TargetAssemblyTypeName: Immersed.UI.UIViewConfirmAction, Assembly-CSharp
+        m_MethodName: Yes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1906780682
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +698,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1906780685}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 875007168}
+        m_TargetAssemblyTypeName: Immersed.UI.UIViewConfirmAction, Assembly-CSharp
+        m_MethodName: No
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5777520227111704417
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5777520227111704416
 RectTransform:
   m_ObjectHideFlags: 0
@@ -738,7 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da511a5a0e7f54ea98a45e9f1a58e31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _description: {fileID: 0}
+  _description: {fileID: 1229353644}
 --- !u!1 &5777520227238815817
 GameObject:
   m_ObjectHideFlags: 0

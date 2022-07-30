@@ -4,7 +4,7 @@ using System;
 
 namespace Immersed.UI
 {
-    public class UIViewConfirmAction : MonoBehaviour
+    public class UIViewConfirmAction : UIView
     {
         [SerializeField] private TMP_Text _description;
 
@@ -14,13 +14,13 @@ namespace Immersed.UI
         public void Yes()
         {
             ConfirmAction?.Invoke();
-            Disable();
+            Hide();
         }
 
         public void No()
         {
             CancelAction?.Invoke();
-            Disable();
+            Hide();
         }
 
         public void AddAction(string actionDescription, Action action)
@@ -29,9 +29,5 @@ namespace Immersed.UI
             _description.text = actionDescription;
             ConfirmAction = action;
         }
-
-        private void Enable() => gameObject.SetActive(true);
-
-        private void Disable() => gameObject.SetActive(false);
     }
 }
