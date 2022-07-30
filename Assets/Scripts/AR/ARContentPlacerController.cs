@@ -9,6 +9,8 @@ namespace Immersed.AR
         [SerializeField] private ARPointer _arPointer;
         [SerializeField] private ARItemContainerController _arItemContainerController;
 
+        private bool _canPlaceContent = false;
+
         private void OnEnable()
         {
             _inputManager.OnButtonPressDownEvent += HandleOnButtonPressedEvent;
@@ -30,17 +32,21 @@ namespace Immersed.AR
 
         private void HandleOnButtonPressedEvent()
         {
-            PlaceItemOntoGround();
+            if (_canPlaceContent)
+            {
+                PlaceItemOntoGround();
+            }
         }
 
         private void HandleOnARPointerEnterEvent(Vector3 hitPosition)
         {
+            _canPlaceContent = true;
             _arItemContainerController.SetPosition(hitPosition);
         }
 
         private void HandleOnARPointerExitEvent()
         {
-
+            _canPlaceContent = false;
         }
 
         private void PlaceItemOntoGround()
