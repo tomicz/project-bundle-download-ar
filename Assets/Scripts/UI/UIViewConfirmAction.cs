@@ -28,6 +28,7 @@ namespace Immersed.UI
             gameObject.SetActive(true);
             _description.text = actionDescription;
             ConfirmAction = action;
+            CancelAction = null;
         }
 
         public void AddCancelAction(Action action)
