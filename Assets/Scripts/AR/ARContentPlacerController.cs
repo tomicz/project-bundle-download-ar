@@ -1,3 +1,4 @@
+using Immersed.UI;
 using UnityEngine;
 
 namespace Immersed.AR
@@ -8,6 +9,7 @@ namespace Immersed.AR
         [SerializeField] private InputManager _inputManager;
         [SerializeField] private ARPointer _arPointer;
         [SerializeField] private ARItemContainerController _arItemContainerController;
+        [SerializeField] private UIViewConfirmAction _uiViewConfirmAction;
 
         private bool _canPlaceContent = false;
 
@@ -34,7 +36,9 @@ namespace Immersed.AR
         {
             if (_canPlaceContent)
             {
-                PlaceItemOntoGround();
+                TryPlacingItemOntoGround();
+                _uiViewConfirmAction.AddConfirmAction("Are you sure you want to place an object here?", PlaceItemOntoGround);
+                _uiViewConfirmAction.AddCancelAction(ReturnPlacedItem);
             }
         }
 
@@ -49,9 +53,19 @@ namespace Immersed.AR
             _canPlaceContent = false;
         }
 
+        private void TryPlacingItemOntoGround()
+        {
+            _arItemContainerController.ReleaseItem();
+        }
+
         private void PlaceItemOntoGround()
         {
             _arItemContainerController.RemoveItem();
+        }
+
+        private void ReturnPlacedItem()
+        {
+            _arItemContainerController.GrabLastItem();
         }
     }
 }
