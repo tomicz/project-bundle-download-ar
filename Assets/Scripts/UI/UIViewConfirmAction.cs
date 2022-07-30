@@ -23,11 +23,16 @@ namespace Immersed.UI
             Hide();
         }
 
-        public void AddAction(string actionDescription, Action action)
+        public void AddConfirmAction(string actionDescription, Action action)
         {
             gameObject.SetActive(true);
             _description.text = actionDescription;
             ConfirmAction = action;
+        }
+
+        public void AddCancelAction(Action action)
+        {
+            CancelAction = action;
         }
     }
 }
