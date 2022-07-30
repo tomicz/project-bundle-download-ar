@@ -5,17 +5,20 @@ namespace Immersed.AR
     public class ARItemContainerController : MonoBehaviour
     {
         private Transform _grabbedItem;
+        private Transform _grabbedItemOriginalParent;
 
-        public void GrabItem(Transform transform)
+        public void GrabItem(Transform grabbedItem)
         {
-            _grabbedItem = transform;
+            _grabbedItem = grabbedItem;
+            _grabbedItemOriginalParent = _grabbedItem.parent;
             _grabbedItem.SetParent(transform);
         }
 
         public void RemoveItem()
         {
-            _grabbedItem.SetParent(null);
+            _grabbedItem.SetParent(_grabbedItemOriginalParent);
             _grabbedItem = null;
+            _grabbedItemOriginalParent = null;
         }
 
         public void SetPosition(Vector3 position) => transform.position = position;

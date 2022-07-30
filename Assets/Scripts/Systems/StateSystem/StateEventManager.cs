@@ -12,6 +12,8 @@ namespace Immersed.Systems.StateSystem
 
         private void Awake()
         {
+            SetupStateDependenies();
+
             _stateMachine = new StateMachine();
 
             if(_bootState != null)
@@ -23,7 +25,6 @@ namespace Immersed.Systems.StateSystem
                 Debug.LogWarning("Boot state is not referenced in the inspector. Drag StateBoot reference to the inspector");
             }
 
-            SetupStateDependenies();
         }
 
         private void Update()
