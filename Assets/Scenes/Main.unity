@@ -1117,6 +1117,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7286956412381682247}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2041420567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6518985188279800876, guid: 86e0b8119ed1342e9b5bcd927a16a34a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6518985188856716341}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b5be031d83a4f90b73a4d98b9bd6d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &889504248789245846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1505,9 +1517,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6518985186991177414, guid: 86e0b8119ed1342e9b5bcd927a16a34a,
         type: 3}
+      propertyPath: _nextState
+      value: 
+      objectReference: {fileID: 2041420567}
+    - target: {fileID: 6518985186991177414, guid: 86e0b8119ed1342e9b5bcd927a16a34a,
+        type: 3}
       propertyPath: _worldCanvas
       value: 
       objectReference: {fileID: 1989505085}
+    - target: {fileID: 6518985186991177414, guid: 86e0b8119ed1342e9b5bcd927a16a34a,
+        type: 3}
+      propertyPath: _arPlaneManager
+      value: 
+      objectReference: {fileID: 927131997}
     - target: {fileID: 6518985186991177414, guid: 86e0b8119ed1342e9b5bcd927a16a34a,
         type: 3}
       propertyPath: _arContentPlacerController
@@ -1587,6 +1609,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 715126841}
     m_Modifications:
+    - target: {fileID: 7286956412072536696, guid: d9525c6c31dfc491a844c257179e1784,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7286956412072536698, guid: d9525c6c31dfc491a844c257179e1784,
         type: 3}
       propertyPath: m_Pivot.x

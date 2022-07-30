@@ -4,8 +4,8 @@ namespace Immersed.Systems.StateSystem
 {
     public abstract class State : MonoBehaviour
     {
-        private StateMachine _stateMachine;
-        private StateEventManager _stateEventManager;
+        protected StateMachine _stateMachine;
+        protected StateEventManager _stateEventManager;
 
         public virtual void OnEnter()
         {

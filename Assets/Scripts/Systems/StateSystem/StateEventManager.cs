@@ -12,19 +12,7 @@ namespace Immersed.Systems.StateSystem
 
         private void Awake()
         {
-            SetupStateDependenies();
-
-            _stateMachine = new StateMachine();
-
-            if(_bootState != null)
-            {
-                _stateMachine.Initialize(_bootState);
-            }
-            else
-            {
-                Debug.LogWarning("Boot state is not referenced in the inspector. Drag StateBoot reference to the inspector");
-            }
-
+            SetupStateMachine();
         }
 
         private void Update()
@@ -42,14 +30,30 @@ namespace Immersed.Systems.StateSystem
             _stateMachine?.CurrentState?.StateLateUpdate();
         }
 
-        private void SetupStateDependenies()
+        private void SetupStateMachine()
+        {
+            _stateMachine = new StateMachine();
+
+            SetupStateDependenies(_stateMachine);
+
+            if (_bootState != null)
+            {
+                _stateMachine.Initialize(_bootState);
+            }
+            else
+            {
+                Debug.LogWarning("Boot state is not referenced in the inspector. Drag StateBoot reference to the inspector");
+            }
+        }
+
+        private void SetupStateDependenies(StateMachine stateMachine)
         {
             if(_states.Length > 0)
             {
                 foreach (var state in _states)
                 {
                     state.SetEventStateManager(this);
-                    state.SetStateMachine(_stateMachine);
+                    state.SetStateMachine(stateMachine);
                 }
             }
         }
