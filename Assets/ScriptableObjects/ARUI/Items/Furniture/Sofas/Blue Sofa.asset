@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880ddf96665c54843972f039829ae704, type: 3}
+  m_Name: Blue Sofa
+  m_EditorClassIdentifier: 
+  _price: 80
+  _color: {r: 0, g: 0.1451273, b: 1, a: 1}
+  _spriteLink: https://i.pinimg.com/474x/7a/40/bb/7a40bbc16c0e0611f93f2933aa34df4b.jpg
+  _assetLink: 

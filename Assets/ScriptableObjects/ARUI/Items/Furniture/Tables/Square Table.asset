@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880ddf96665c54843972f039829ae704, type: 3}
+  m_Name: Square Table
+  m_EditorClassIdentifier: 
+  _price: 324
+  _color: {r: 0.10893297, g: 0, b: 1, a: 1}
+  _spriteLink: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi5.walmartimages.com%2Fasr%2Ffd375f04-0431-4283-ae04-62c6f77de39e_1.ab0ce89790fd67042088651a2e17c0e6.jpeg%3FodnHeight%3D450%26odnWidth%3D450%26odnBg%3Dffffff&f=1&nofb=1
+  _assetLink: 
