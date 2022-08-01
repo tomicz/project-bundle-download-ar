@@ -1,22 +1,14 @@
-using System;
 using Immersed.AR;
-using TMPro;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
 
-namespace Immersed.UI
+namespace Immersed.UI.ARUI
 {
-    public class UIButtonCategory : Button, IARPointerEnter, IARPointerExit, IARPointerSelect
+    [RequireComponent(typeof(BoxCollider))]
+    public class ARUIButton : Button, IARPointerEnter, IARPointerExit, IARPointerSelect
     {
-        public int ButtonIndex => _buttonIndex;
-        public Action<int> OnButtonClickedEvent;
-
-        [SerializeField] private TMP_Text _categoryNameText;
-
         private BoxCollider _boxCollider;
         private RectTransform _rectTransform;
-
-        private int _buttonIndex = 0;
 
         protected override void Awake()
         {
@@ -24,15 +16,6 @@ namespace Immersed.UI
             _rectTransform = GetComponent<RectTransform>();
 
             MatchColliderWithButton();
-        }
-
-        public void SetCategoryName(string name) => _categoryNameText.text = name;
-
-        public void SetIndex(int index) => _buttonIndex = index;
-
-        public void HandleOnClickEvent()
-        {
-            OnButtonClickedEvent.Invoke(_buttonIndex);
         }
 
         public void OnPointerEnter()
@@ -47,7 +30,8 @@ namespace Immersed.UI
 
         public void OnPointerSelected()
         {
-            HandleOnClickEvent();
+            base.DoStateTransition(SelectionState.Pressed, false);
+            onClick.Invoke();
         }
 
         private void MatchColliderWithButton()

@@ -6,7 +6,7 @@ namespace Immersed.AR
 {
     public class ARContentPlacerController : MonoBehaviour
     {
-        public Action OnContentPlacedEvent;
+        public Action<Vector3> OnContentPlacedEvent;
 
         [Header("Dependencies")]
         [SerializeField] private InputManager _inputManager;
@@ -15,17 +15,18 @@ namespace Immersed.AR
         [SerializeField] private UIViewConfirmAction _uiViewConfirmAction;
 
         private bool _canPlaceContent = false;
+        private Vector3 _hitPosition;
 
         private void OnEnable()
         {
-            _inputManager.OnButtonPressDownEvent += HandleOnButtonPressedEvent;
+            _inputManager.OnPointerDownEvent += HandleOnButtonPressedEvent;
             _arPointer.OnPointerEnterEvent += HandleOnARPointerEnterEvent;
             _arPointer.OnPointerExitEvent += HandleOnARPointerExitEvent;
         }
 
         private void OnDisable()
         {
-            _inputManager.OnButtonPressDownEvent -= HandleOnButtonPressedEvent;
+            _inputManager.OnPointerDownEvent -= HandleOnButtonPressedEvent;
             _arPointer.OnPointerEnterEvent -= HandleOnARPointerEnterEvent;
             _arPointer.OnPointerExitEvent -= HandleOnARPointerExitEvent;
         }
@@ -51,6 +52,7 @@ namespace Immersed.AR
 
         private void HandleOnARPointerEnterEvent(Vector3 hitPosition)
         {
+            _hitPosition = hitPosition;
             _canPlaceContent = true;
             _arItemContainerController.SetPosition(hitPosition);
         }
@@ -67,7 +69,7 @@ namespace Immersed.AR
 
         private void PlaceItemOntoGround()
         {
-            OnContentPlacedEvent?.Invoke();
+            OnContentPlacedEvent?.Invoke(_hitPosition);
             _arItemContainerController.RemoveItem();
         }
 
