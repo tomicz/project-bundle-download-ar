@@ -44,6 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1bb8f2f39cb4d2b867aa83a08421d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nextState: {fileID: 6518985188279800876}
+  _arContentPlacerController: {fileID: 0}
+  _worldCanvas: {fileID: 0}
+  _arPlaneManager: {fileID: 0}
+  _arRaycastDebugger: {fileID: 0}
+  _arPointer: {fileID: 0}
+  _canvasContainer: {fileID: 0}
 --- !u!1 &6518985188189101977
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,3 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b5be031d83a4f90b73a4d98b9bd6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _arPointer: {fileID: 0}
+  _inputManager: {fileID: 0}
+  _canvasContainer: {fileID: 0}
+  _whatCanHit:
+    serializedVersion: 2
+    m_Bits: 128
