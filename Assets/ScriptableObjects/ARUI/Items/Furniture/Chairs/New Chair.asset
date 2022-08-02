@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New Chair
   m_EditorClassIdentifier: 
   _price: 120
-  _color: {r: 0.5471698, g: 0.39164558, b: 0.03355288, a: 1}
-  _spriteLink: https://www.newdesigngroup.co.uk/wp-content/uploads/Theo-Chair.jpg
+  _color: {r: 0.3160377, g: 0.4142366, b: 1, a: 1}
+  _spriteLink: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimage.net%2Fwp-content%2Fuploads%2F2019%2F05%2Ffurniture-picture-png-.png&f=1&nofb=1
   _assetLink: 
