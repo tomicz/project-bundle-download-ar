@@ -15,4 +15,4 @@ MonoBehaviour:
   _price: 300
   _color: {r: 0, g: 0, b: 0, a: 1}
   _spriteLink: http://boss-chair.com/wp-content/uploads/2017/06/B800-BKFV.jpg
-  _assetLink: 
+  _bundleName: blackchair

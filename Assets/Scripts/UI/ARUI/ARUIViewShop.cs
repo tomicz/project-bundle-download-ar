@@ -1,3 +1,5 @@
+using System;
+using Immersed.AR;
 using Immersed.Data;
 using UnityEngine;
 
@@ -5,10 +7,13 @@ namespace Immersed.UI.ARUI
 {
     public class ARUIViewShop : ARUIView
     {
+        public Action<FurnitureData> OnItemBoughtEvent;
+
         [Header("Shop Dependencies")]
         [SerializeField] private ARUIViewHorizontalList _menuHorizontalList;
         [SerializeField] private ARUIViewShopContent _shopContent;
         [SerializeField] private ARUIViewFooter _footer;
+        [SerializeField] private CanvasGroup _canvasGroup;
 
         [Header("Shop Data")]
         [SerializeField] private ItemContainerData _itemContainerData;
@@ -40,6 +45,12 @@ namespace Immersed.UI.ARUI
             }
 
             SelectItem(_currentIndex);
+        }
+
+        public void Buy()
+        {
+            OnItemBoughtEvent?.Invoke(_currentSelectedItem);
+            _canvasGroup.interactable = false;
         }
 
         private void LoadCategories()

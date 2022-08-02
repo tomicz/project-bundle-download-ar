@@ -8,12 +8,12 @@ namespace Immersed.Data
         public float Price => _price;
         public Color Color => _color;
         public string SpriteDownloadLink => _spriteLink;
-        public string AssetDownloadLink => _assetLink;
+        public string BundleName => _bundleName;
 
         [Header("Furniture Properties")]
         [SerializeField] private float _price;
         [SerializeField] private Color _color;
         [SerializeField] private string _spriteLink;
-        [SerializeField] private string _assetLink;
+        [SerializeField] private string _bundleName;
     }
 }

@@ -1262,7 +1262,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0.0000000037252903}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1471896281
 CanvasRenderer:
@@ -1451,7 +1451,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1496365752}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1678049777}
+        m_TargetAssemblyTypeName: Immersed.UI.ARUI.ARUIViewShop, Assembly-CSharp
+        m_MethodName: Buy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1678049775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,6 +1518,7 @@ MonoBehaviour:
   _menuHorizontalList: {fileID: 7799444644367690567}
   _shopContent: {fileID: 819920413}
   _footer: {fileID: 2068348543}
+  _canvasGroup: {fileID: 1993607775}
   _itemContainerData: {fileID: 11400000, guid: 48ca9ee465916499faaba2e75c52d51a, type: 2}
 --- !u!1 &1820881273
 GameObject:
@@ -2016,6 +2029,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7286956411672909469}
   - component: {fileID: 7286956411672909467}
+  - component: {fileID: 1993607775}
   m_Layer: 0
   m_Name: ARUI
   m_TagString: Untagged
@@ -2054,6 +2068,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7286956411672909470}
   m_CullTransparentMesh: 1
+--- !u!225 &1993607775
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7286956411672909470}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7286956412072536699
 GameObject:
   m_ObjectHideFlags: 0
