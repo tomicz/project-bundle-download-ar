@@ -21,7 +21,7 @@ namespace Immersed.Systems.StateSystem.States
         public override void OnEnter()
         {
             base.OnEnter();
-            //_arPlaneManager.enabled = true;
+
             _arRaycastDebugger.Enable();
             _arRaycastDebugger.enabled = true;
             _arPointer.ShowRaycaster(false);
@@ -48,12 +48,9 @@ namespace Immersed.Systems.StateSystem.States
         public override void OnExit()
         {
             base.OnExit();
-            //ClearExistingARPlanes();
-            //_arPlaneManager.enabled = false;
+
             _arContentPlacerController.OnContentPlacedEvent -= HandleOnContentPlacedEvent;
             _arContentPlacerController.Disable();
-            _arRaycastDebugger.Disable();
-            _arRaycastDebugger.enabled = false;
             _arPointer.ShowRaycaster(true);
         }
 
@@ -61,14 +58,6 @@ namespace Immersed.Systems.StateSystem.States
         {
             _canvasContainer.SetPosition(hitPosition);
             _stateMachine.ChangeState(_nextState);
-        }
-
-        private void ClearExistingARPlanes()
-        {
-            foreach (var plane in _arPlaneManager.trackables)
-            {
-                plane.gameObject.SetActive(false);
-            }
         }
     }
 }
