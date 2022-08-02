@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1194800297662437034}
   - component: {fileID: 1194800297662437029}
+  - component: {fileID: 7851952560721793252}
   m_Layer: 0
   m_Name: CanvasContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1194800297662437034
 Transform:
   m_ObjectHideFlags: 0
@@ -46,6 +47,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvas: {fileID: 0}
+  _circleSprite: {fileID: 1194800298016367741}
+  _onSelectedColor: {r: 0.18039216, g: 0.8352941, b: 0.4509804, a: 255}
+--- !u!65 &7851952560721793252
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194800297662437028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1194800298016367743
 GameObject:
   m_ObjectHideFlags: 0
