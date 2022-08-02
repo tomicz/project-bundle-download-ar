@@ -1,6 +1,5 @@
 using Immersed.AR;
 using UnityEngine;
-using UnityEngine.XR.ARFoundation;
 
 namespace Immersed.Systems.StateSystem.States
 {
@@ -13,7 +12,6 @@ namespace Immersed.Systems.StateSystem.States
 
         [Header("State properties")]
         [SerializeField] private LayerMask _interactableLayer;
-        [SerializeField] private LayerMask _groundLayer;
 
         public override void OnEnter()
         {
@@ -57,13 +55,12 @@ namespace Immersed.Systems.StateSystem.States
 
         private void HandleOnPointerDragEvent()
         {
-            _arPointer.ChangeTarget(_groundLayer);
             _arPointer.RegisterOnPointerDrag();
         }
 
         private void HandleOnPointerUpEvent()
         {
-            _arPointer.ChangeTarget(_interactableLayer);
+            _arPointer.RegisterOnPointerUp();
         }
     }
 }
