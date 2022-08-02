@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1194800297662437034}
   - component: {fileID: 1194800297662437029}
   - component: {fileID: 7851952560721793252}
-  m_Layer: 0
+  - component: {fileID: 7134035820683309058}
+  m_Layer: 7
   m_Name: CanvasContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvas: {fileID: 0}
   _circleSprite: {fileID: 1194800298016367741}
+  _visualizer: {fileID: 0}
   _onSelectedColor: {r: 0.18039216, g: 0.8352941, b: 0.4509804, a: 255}
 --- !u!65 &7851952560721793252
 BoxCollider:
@@ -57,11 +59,26 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194800297662437028}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.15, y: 0.07171029, z: 0.15}
+  m_Center: {x: 0, y: 0.011131439, z: 0}
+--- !u!114 &7134035820683309058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194800297662437028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780c372166c7b43f9bf9ac9e908fac4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotateObject: {fileID: 0}
+  _dragThreshold: 50
+  _rotationSpeed: 100
 --- !u!1 &1194800298016367743
 GameObject:
   m_ObjectHideFlags: 0
