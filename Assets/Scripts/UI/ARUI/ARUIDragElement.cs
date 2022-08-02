@@ -38,7 +38,7 @@ namespace Immersed.UI.ARUI
             }
         }
 
-        public void OnPointerSelected()
+        public void OnPointerSelected(Vector2 inputPosition)
         {
             if (!_canDrag)
             {
@@ -46,7 +46,7 @@ namespace Immersed.UI.ARUI
             }
         }
 
-        public void OnPointerUp()
+        public void OnPointerUp(Vector2 inputPosition)
         {
             _canDrag = false;
         }

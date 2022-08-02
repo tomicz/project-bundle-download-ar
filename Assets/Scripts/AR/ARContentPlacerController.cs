@@ -40,7 +40,7 @@ namespace Immersed.AR
 
         public void Disable() => gameObject.SetActive(false);
 
-        private void HandleOnButtonPressedEvent()
+        private void HandleOnButtonPressedEvent(Vector2 inputPosition)
         {
             if (_canPlaceContent)
             {

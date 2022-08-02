@@ -28,7 +28,7 @@ namespace Immersed.UI.ARUI
             base.DoStateTransition(SelectionState.Normal, false);
         }
 
-        public void OnPointerSelected()
+        public void OnPointerSelected(Vector2 inputPosition)
         {
             base.DoStateTransition(SelectionState.Pressed, false);
             onClick.Invoke();

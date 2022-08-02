@@ -48,19 +48,19 @@ namespace Immersed.Systems.StateSystem.States
             _inputManager.OnPointerUpEvent -= HandleOnPointerUpEvent;
         }
 
-        private void HandleOnButtonPressedDownEvent()
+        private void HandleOnButtonPressedDownEvent(Vector2 inputPosition)
         {
-            _arPointer.RegisterOnPointerSelected();
+            _arPointer.RegisterOnPointerSelected(inputPosition);
         }
 
-        private void HandleOnPointerDragEvent()
+        private void HandleOnPointerDragEvent(Vector2 inputPosition)
         {
-            _arPointer.RegisterOnPointerDrag();
+            _arPointer.RegisterOnPointerDrag(inputPosition);
         }
 
-        private void HandleOnPointerUpEvent()
+        private void HandleOnPointerUpEvent(Vector2 inputPosition)
         {
-            _arPointer.RegisterOnPointerUp();
+            _arPointer.RegisterOnPointerUp(inputPosition);
         }
     }
 }
