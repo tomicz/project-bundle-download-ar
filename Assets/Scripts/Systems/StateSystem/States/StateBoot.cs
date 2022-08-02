@@ -22,12 +22,12 @@ namespace Immersed.Systems.StateSystem.States
         {
             base.OnEnter();
 
-            _arRaycastDebugger.Enable();
             _arRaycastDebugger.enabled = true;
             _arPointer.ShowRaycaster(false);
             _arContentPlacerController.Enable();
             _arContentPlacerController.OnContentPlacedEvent += HandleOnContentPlacedEvent;
             _arContentPlacerController.SetItem(_worldCanvas.transform);
+            _worldCanvas.transform.localPosition = new Vector3(_worldCanvas.transform.localPosition.x, 0.5f, _worldCanvas.transform.localPosition.z);
         }
 
         public override void StateFixedUpdate()
