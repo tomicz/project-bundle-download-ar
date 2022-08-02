@@ -22,6 +22,7 @@ namespace Immersed.AR
         private IARPointerExit _onPointerExit;
         private IARPointerSelect _onPointerSelect;
         private IARPointerDrag _onPointerDrag;
+        private IARPointerUp _onPointerUp;
 
         private bool _hasEnteredInteraction = false;
         private Vector3 _hitPosition;
@@ -75,6 +76,14 @@ namespace Immersed.AR
             }
         }
 
+        public void RegisterOnPointerUp()
+        {
+            if(_onPointerUp != null)
+            {
+                _onPointerUp.OnPointerUp();
+            }
+        }
+
         private void RegisterOnPointerEnter()
         {
             if(_onPointerEnter == null && _onPointerExit == null)
@@ -83,6 +92,7 @@ namespace Immersed.AR
                 _onPointerExit = _raycaster.target.GetComponent<IARPointerExit>();
                 _onPointerSelect = _raycaster.target.GetComponent<IARPointerSelect>();
                 _onPointerDrag = _raycaster.target.GetComponent<IARPointerDrag>();
+                _onPointerUp = _raycaster.target.GetComponent<IARPointerUp>();
 
                 if (_onPointerEnter != null)
                 {
