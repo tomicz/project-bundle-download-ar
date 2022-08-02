@@ -1,7 +1,9 @@
+using UnityEngine;
+
 namespace Immersed.AR
 {
     public interface IARPointerSelect
     {
-        void OnPointerSelected();
+        void OnPointerSelected(Vector2 inputPosition);
     }
 }

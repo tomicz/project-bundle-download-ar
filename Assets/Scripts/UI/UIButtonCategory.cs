@@ -45,7 +45,7 @@ namespace Immersed.UI
             base.DoStateTransition(SelectionState.Normal, false);
         }
 
-        public void OnPointerSelected()
+        public void OnPointerSelected(Vector2 inputPosition)
         {
             HandleOnClickEvent();
         }

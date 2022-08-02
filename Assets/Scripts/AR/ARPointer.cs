@@ -21,7 +21,8 @@ namespace Immersed.AR
         private IARPointerEnter _onPointerEnter;
         private IARPointerExit _onPointerExit;
         private IARPointerSelect _onPointerSelect;
-        private IARPointerDrag _onPointerDrag;
+        private IARPointerDrag[] _onPointerDrag;
+        private IARPointerUp _onPointerUp;
 
         private bool _hasEnteredInteraction = false;
         private Vector3 _hitPosition;
@@ -59,19 +60,30 @@ namespace Immersed.AR
 
         public void ShowRaycaster(bool enable) => _lineRenderer.gameObject.SetActive(enable);
 
-        public void RegisterOnPointerSelected()
+        public void RegisterOnPointerSelected(Vector2 inputPosition)
         {
             if(_onPointerSelect != null)
             {
-                _onPointerSelect.OnPointerSelected();
+                _onPointerSelect.OnPointerSelected(inputPosition);
             }
         }
 
-        public void RegisterOnPointerDrag()
+        public void RegisterOnPointerDrag(Vector2 inputPosition)
         {
-            if (_onPointerDrag != null)
+            if (_onPointerDrag.Length > 0)
             {
-                _onPointerDrag.OnPointerDrag(_hitPosition);
+                foreach (var pointer in _onPointerDrag)
+                {
+                    pointer.OnPointerDrag(inputPosition);
+                }
+            }
+        }
+
+        public void RegisterOnPointerUp(Vector2 inputPosition)
+        {
+            if(_onPointerUp != null)
+            {
+                _onPointerUp.OnPointerUp(inputPosition);
             }
         }
 
@@ -82,7 +94,8 @@ namespace Immersed.AR
                 _onPointerEnter = _raycaster.target.GetComponent<IARPointerEnter>();
                 _onPointerExit = _raycaster.target.GetComponent<IARPointerExit>();
                 _onPointerSelect = _raycaster.target.GetComponent<IARPointerSelect>();
-                _onPointerDrag = _raycaster.target.GetComponent<IARPointerDrag>();
+                _onPointerDrag = _raycaster.target.GetComponents<IARPointerDrag>();
+                _onPointerUp = _raycaster.target.GetComponent<IARPointerUp>();
 
                 if (_onPointerEnter != null)
                 {

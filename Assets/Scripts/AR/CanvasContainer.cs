@@ -8,6 +8,7 @@ namespace Immersed.AR
         [Header("Dependencies")]
         [SerializeField] private RectTransform _canvas;
         [SerializeField] private SpriteRenderer _circleSprite;
+        [SerializeField] private Transform _visualizer;
 
         [Header("Properties")]
         [SerializeField] private Color _onSelectedColor;
@@ -38,10 +39,10 @@ namespace Immersed.AR
             _circleSprite.color = _defaultColor;
         }
 
-        public void OnPointerDrag(Vector3 position)
+        public void OnPointerDrag(Vector2 inputPosition)
         {
-            transform.position = new Vector3(position.x, transform.position.y, position.z);
-            _canvas.transform.position = new Vector3(position.x, _canvas.transform.position.y, position.z);
+            transform.position = new Vector3(_visualizer.transform.position.x, transform.position.y, _visualizer.transform.position.z);
+            _canvas.transform.position = new Vector3(_visualizer.transform.position.x, _canvas.transform.position.y, _visualizer.transform.position.z);
         }
     }
 }
