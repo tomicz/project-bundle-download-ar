@@ -12,6 +12,7 @@ namespace Immersed.AR
             _grabbedItem = grabbedItem;
             _grabbedItemOriginalParent = _grabbedItem.parent;
             _grabbedItem.SetParent(transform);
+            _grabbedItem.transform.localPosition = Vector3.zero;
         }
 
         public void GrabLastItem()
