@@ -37,6 +37,7 @@ namespace Immersed.AR
 
         public void SetItem(Transform transform)
         {
+            Enable();
             _arRaycastDebugger.enabled = false;
             _arPointer.ShowRaycaster(false);
             _arPointer.ChangeTarget(_groundMask);
@@ -79,8 +80,9 @@ namespace Immersed.AR
             _arRaycastDebugger.enabled = true;
             _arPointer.ShowRaycaster(true);
             _arPointer.ChangeTarget(_interactableMask);
-            OnContentPlacedEvent?.Invoke(_hitPosition);
             _arItemContainerController.RemoveItem();
+            OnContentPlacedEvent?.Invoke(_hitPosition);
+            Disable();
         }
 
         private void ReturnPlacedItem()
