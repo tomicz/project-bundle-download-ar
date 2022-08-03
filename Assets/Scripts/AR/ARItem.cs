@@ -4,18 +4,11 @@ using UnityEngine;
 
 namespace Immersed.AR
 {
-    [RequireComponent(typeof(BoxCollider))]
     public class ARItem : MonoBehaviour, IARPointerSelect, IARPointerEnter, IARPointerExit
     {
-        private BoxCollider _boxCollider;
         private ARContentPlacerController _arContentPlacerController;
         private FurnitureData _furnitureData;
         private ARUIViewPopupData _arViewPopupData;
-
-        private void Awake()
-        {
-            _boxCollider = GetComponent<BoxCollider>();
-        }
 
         public void SetItemController(ARContentPlacerController arContentPlacerController) => _arContentPlacerController = arContentPlacerController;
 
