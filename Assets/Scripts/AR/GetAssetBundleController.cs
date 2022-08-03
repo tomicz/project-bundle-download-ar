@@ -1,5 +1,4 @@
 using Immersed.Data;
-using Immersed.Debugging;
 using Immersed.UI.ARUI;
 using UnityEngine;
 
@@ -11,10 +10,6 @@ namespace Immersed.AR
         [SerializeField] private ARUIViewShop _shop;
         [SerializeField] private CanvasGroup _shopCanvasGroup;
         [SerializeField] private ARContentPlacerController _contentPlacer;
-        [SerializeField] private ARPointer _arPointer;
-        [SerializeField] private ARRaycastDebugger _raycastDebugger;
-        [SerializeField] private LayerMask _groundMask;
-        [SerializeField] private LayerMask _interactableMask;
 
         private BundleDownloader _bundleDownloader;
 
@@ -42,18 +37,15 @@ namespace Immersed.AR
 
         private void OnBundleDownloaded(GameObject bundleObject)
         {
+            bundleObject.AddComponent<ARItem>();
+            bundleObject.GetComponent<ARItem>().SetItemController(_contentPlacer);
+
             _contentPlacer.SetItem(bundleObject.transform);
             _contentPlacer.Enable();
-            _raycastDebugger.enabled = false;
-            _arPointer.ShowRaycaster(false);
-            _arPointer.ChangeTarget(_groundMask);
         }
 
         private void HandleOnBundlePlacedEvent(Vector3 placedPosition)
         {
-            _raycastDebugger.enabled = true;
-            _arPointer.ShowRaycaster(true);
-            _arPointer.ChangeTarget(_interactableMask);
             _contentPlacer.Disable();
             _shopCanvasGroup.interactable = true;
         }
