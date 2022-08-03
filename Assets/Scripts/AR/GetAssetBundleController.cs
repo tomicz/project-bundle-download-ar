@@ -8,6 +8,7 @@ namespace Immersed.AR
     public class GetAssetBundleController : MonoBehaviour
     {
         [SerializeField] private ARUIViewShop _shop;
+        [SerializeField] private Transform _downloadHandler;
         [SerializeField] private CanvasGroup _shopCanvasGroup;
         [SerializeField] private ARContentPlacerController _contentPlacer;
 
@@ -32,6 +33,7 @@ namespace Immersed.AR
 
         public void HandleOnItemBoughtEvent(FurnitureData item)
         {
+            _downloadHandler.gameObject.SetActive(true);
             _bundleDownloader.GetBundleObject(item.BundleName, OnBundleDownloaded, null);
         }
 
@@ -41,6 +43,7 @@ namespace Immersed.AR
             bundleObject.GetComponent<ARItem>().SetItemController(_contentPlacer);
 
             _contentPlacer.SetItem(bundleObject.transform);
+            _downloadHandler.gameObject.SetActive(false);
         }
 
         private void HandleOnBundlePlacedEvent(Vector3 placedPosition)
