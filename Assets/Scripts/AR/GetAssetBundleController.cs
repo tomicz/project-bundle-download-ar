@@ -13,6 +13,7 @@ namespace Immersed.AR
         [SerializeField] private ARContentPlacerController _contentPlacer;
 
         private BundleDownloader _bundleDownloader;
+        private FurnitureData _furnitureData;
 
         private void Awake()
         {
@@ -31,16 +32,20 @@ namespace Immersed.AR
             _contentPlacer.OnContentPlacedEvent -= HandleOnBundlePlacedEvent;
         }
 
-        public void HandleOnItemBoughtEvent(FurnitureData item)
+        public void HandleOnItemBoughtEvent(FurnitureData data)
         {
+            _furnitureData = data;
             _downloadHandler.gameObject.SetActive(true);
-            _bundleDownloader.GetBundleObject(item.BundleName, OnBundleDownloaded, null);
+            _bundleDownloader.GetBundleObject(data.BundleName, OnBundleDownloaded, null);
         }
 
         private void OnBundleDownloaded(GameObject bundleObject)
         {
             bundleObject.AddComponent<ARItem>();
-            bundleObject.GetComponent<ARItem>().SetItemController(_contentPlacer);
+
+            ARItem arItem = bundleObject.GetComponent<ARItem>();
+            arItem.SetItemController(_contentPlacer);
+            arItem.SetFurnitureData(_furnitureData);
 
             _contentPlacer.SetItem(bundleObject.transform);
             _downloadHandler.gameObject.SetActive(false);
