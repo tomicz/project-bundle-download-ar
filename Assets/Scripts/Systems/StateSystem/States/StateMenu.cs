@@ -8,7 +8,6 @@ namespace Immersed.Systems.StateSystem.States
         [Header("Dependencies")]
         [SerializeField] private ARPointer _arPointer;
         [SerializeField] private InputManager _inputManager;
-        [SerializeField] private CanvasContainer _canvasContainer;
 
         [Header("State properties")]
         [SerializeField] private LayerMask _interactableLayer;
@@ -16,10 +15,8 @@ namespace Immersed.Systems.StateSystem.States
         public override void OnEnter()
         {
             base.OnEnter();
-            _canvasContainer.Enable();
-            _arPointer.ChangeTarget(_interactableLayer);
 
-            _inputManager.OnPointerDownEvent += HandleOnButtonPressedDownEvent;
+            _inputManager.OnPointerDownEvent = HandleOnButtonPressedDownEvent;
             _inputManager.OnPointerHoldEvent += HandleOnPointerDragEvent;
             _inputManager.OnPointerUpEvent += HandleOnPointerUpEvent;
         }
