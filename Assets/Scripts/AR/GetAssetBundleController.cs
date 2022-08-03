@@ -41,12 +41,10 @@ namespace Immersed.AR
             bundleObject.GetComponent<ARItem>().SetItemController(_contentPlacer);
 
             _contentPlacer.SetItem(bundleObject.transform);
-            _contentPlacer.Enable();
         }
 
         private void HandleOnBundlePlacedEvent(Vector3 placedPosition)
         {
-            _contentPlacer.Disable();
             _shopCanvasGroup.interactable = true;
         }
     }
