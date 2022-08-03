@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &36256662
 Transform:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0.04, y: -0.04, z: 0}
+  - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 10}
   m_Parameters:
     serializedVersion: 3
@@ -180,6 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rayLength: 10
+  _offsetX: 0.03
+  _offsetY: -0.06
   _lineRenderer: {fileID: 36256663}
 --- !u!114 &4279305826765842592
 MonoBehaviour:
@@ -238,7 +240,7 @@ Transform:
   m_GameObject: {fileID: 4279305828559063276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4279305826765842606}
