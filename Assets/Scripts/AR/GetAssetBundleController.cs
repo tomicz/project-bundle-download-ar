@@ -11,6 +11,8 @@ namespace Immersed.AR
         [SerializeField] private Transform _downloadHandler;
         [SerializeField] private CanvasGroup _shopCanvasGroup;
         [SerializeField] private ARContentPlacerController _contentPlacer;
+        [SerializeField] private ARUIViewPopupData _viewPopupData;
+        [SerializeField] private Transform _bundlesParent;
 
         private BundleDownloader _bundleDownloader;
         private FurnitureData _furnitureData;
@@ -36,7 +38,7 @@ namespace Immersed.AR
         {
             _furnitureData = data;
             _downloadHandler.gameObject.SetActive(true);
-            _bundleDownloader.GetBundleObject(data.BundleName, OnBundleDownloaded, null);
+            _bundleDownloader.GetBundleObject(data.BundleName, OnBundleDownloaded, _bundlesParent);
         }
 
         private void OnBundleDownloaded(GameObject bundleObject)
@@ -46,6 +48,7 @@ namespace Immersed.AR
             ARItem arItem = bundleObject.GetComponent<ARItem>();
             arItem.SetItemController(_contentPlacer);
             arItem.SetFurnitureData(_furnitureData);
+            arItem.SetViewPopup(_viewPopupData);
 
             _contentPlacer.SetItem(bundleObject.transform);
             _downloadHandler.gameObject.SetActive(false);

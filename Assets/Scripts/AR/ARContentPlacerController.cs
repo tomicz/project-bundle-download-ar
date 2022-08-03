@@ -1,6 +1,7 @@
 using System;
 using Immersed.Debugging;
 using Immersed.UI;
+using Immersed.UI.ARUI;
 using UnityEngine;
 
 namespace Immersed.AR
@@ -15,6 +16,7 @@ namespace Immersed.AR
         [SerializeField] private ARRaycastDebugger _arRaycastDebugger;
         [SerializeField] private ARItemContainerController _arItemContainerController;
         [SerializeField] private UIViewConfirmAction _uiViewConfirmAction;
+        [SerializeField] private ARUIViewPopupData _viewPopupData;
         [SerializeField] private LayerMask _groundMask;
         [SerializeField] private LayerMask _interactableMask;
 
