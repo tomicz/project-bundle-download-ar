@@ -3,12 +3,11 @@ using UnityEngine;
 namespace Immersed.AR
 {
     [RequireComponent(typeof(BoxCollider))]
-    public class CanvasContainer : MonoBehaviour, IARPointerEnter, IARPointerExit, IARPointerDrag
+    public class CanvasContainer : MonoBehaviour, IARPointerEnter, IARPointerExit, IARPointerSelect
     {
         [Header("Dependencies")]
-        [SerializeField] private RectTransform _canvas;
         [SerializeField] private SpriteRenderer _circleSprite;
-        [SerializeField] private Transform _visualizer;
+        [SerializeField] private ARContentPlacerController _arContentPlacerController;
 
         [Header("Properties")]
         [SerializeField] private Color _onSelectedColor;
@@ -24,11 +23,6 @@ namespace Immersed.AR
 
         public void Disable() => gameObject.SetActive(false);
 
-        public void SetPosition(Vector3 position)
-        {
-            transform.position = position;
-        }
-
         public void OnPointerEnter()
         {
             _circleSprite.color = _onSelectedColor;
@@ -39,10 +33,9 @@ namespace Immersed.AR
             _circleSprite.color = _defaultColor;
         }
 
-        public void OnPointerDrag(Vector2 inputPosition)
+        public void OnPointerSelected(Vector2 inputPosition)
         {
-            transform.position = new Vector3(_visualizer.transform.position.x, transform.position.y, _visualizer.transform.position.z);
-            _canvas.transform.position = new Vector3(_visualizer.transform.position.x, _canvas.transform.position.y, _visualizer.transform.position.z);
+            _arContentPlacerController.SetItem(transform);
         }
     }
 }
