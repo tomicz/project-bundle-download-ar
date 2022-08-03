@@ -10,9 +10,11 @@ namespace Immersed.AR
 
         [Header("Raycast properties")]
         [SerializeField] private float _rayLength = 10f;
+        [SerializeField] private float _offsetX;
+        [SerializeField] private float _offsetY;
 
         [Header("Dependencies")]
-        [SerializeField] private LineRenderer _lineRenderer;    
+        [SerializeField] private LineRenderer _lineRenderer;
 
         private Raycaster _raycaster;
         private Camera _camera;
@@ -38,7 +40,9 @@ namespace Immersed.AR
 
         private void Update()
         {
-            _hitPosition = _raycaster.Cast(transform.position + _lineRenderer.GetPosition(0), _camera.transform.forward, _rayLength, _whatIsHitMask);
+            Vector3 position = new Vector3(transform.position.x + _offsetX, transform.position.y + _offsetY, transform.position.z);
+            _hitPosition = _raycaster.Cast(position, _camera.transform.forward * _rayLength, _rayLength, _whatIsHitMask);
+            _lineRenderer.transform.position = position;
 
             if (_raycaster.IsTargetHit)
             {
@@ -62,22 +66,28 @@ namespace Immersed.AR
 
         public void RegisterOnPointerSelected(Vector2 inputPosition)
         {
-            if(_onPointerSelect.Length > 0)
+            if(_onPointerSelect?.Length > 0)
             {
                 foreach (var pointer in _onPointerSelect)
                 {
-                    pointer.OnPointerSelected(inputPosition);
+                    if(pointer != null)
+                    {
+                        pointer.OnPointerSelected(inputPosition);
+                    }
                 }
             }
         }
 
         public void RegisterOnPointerDrag(Vector2 inputPosition)
         {
-            if (_onPointerDrag.Length > 0)
+            if (_onPointerDrag?.Length > 0)
             {
                 foreach (var pointer in _onPointerDrag)
                 {
-                    pointer.OnPointerDrag(inputPosition);
+                    if(pointer != null)
+                    {
+                        pointer.OnPointerDrag(inputPosition);
+                    }
                 }
             }
         }

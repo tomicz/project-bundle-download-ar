@@ -54,9 +54,7 @@ namespace Immersed.AR
         {
             if (_canPlaceContent)
             {
-                TryPlacingItemOntoGround();
-                _uiViewConfirmAction.AddConfirmAction("Are you sure you want to place an object here?", PlaceItemOntoGround);
-                _uiViewConfirmAction.AddCancelAction(ReturnPlacedItem);
+                PlaceItemOntoGround();
             }
         }
 
@@ -72,11 +70,6 @@ namespace Immersed.AR
             _canPlaceContent = false;
         }
 
-        private void TryPlacingItemOntoGround()
-        {
-            _arItemContainerController.ReleaseItem();
-        }
-
         private void PlaceItemOntoGround()
         {
             _arRaycastDebugger.enabled = true;
@@ -85,11 +78,6 @@ namespace Immersed.AR
             _arItemContainerController.RemoveItem();
             OnContentPlacedEvent?.Invoke(_hitPosition);
             Disable();
-        }
-
-        private void ReturnPlacedItem()
-        {
-            _arItemContainerController.GrabLastItem();
         }
     }
 }

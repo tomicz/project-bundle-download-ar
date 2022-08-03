@@ -22,6 +22,8 @@ namespace Immersed.UI
         {
             _boxCollider = GetComponent<BoxCollider>();
             _rectTransform = GetComponent<RectTransform>();
+            image.raycastTarget = false;
+            interactable = false;
 
             MatchColliderWithButton();
         }

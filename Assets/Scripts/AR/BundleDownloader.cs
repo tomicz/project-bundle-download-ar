@@ -27,7 +27,7 @@ namespace Immersed.AR
             bundleURL += "IOS" + Token;
 #endif
 
-            Debug.Log("Requesting bundle at " + bundleURL);
+            //Debug.Log("Requesting bundle at " + bundleURL);
 
             // Request asset bundle
             UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle(bundleURL);

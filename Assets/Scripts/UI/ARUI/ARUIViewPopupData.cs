@@ -1,6 +1,7 @@
 using Immersed.Data;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Immersed.UI.ARUI
 {
@@ -8,10 +9,9 @@ namespace Immersed.UI.ARUI
     {
         [Header("Dependencies")]
         [SerializeField] private TMP_Text _itemNameText;
-        [SerializeField] private TMP_Text _colorText;
+        [SerializeField] private Image _colorImage;
         [SerializeField] private TMP_Text _weightText;
         [SerializeField] private TMP_Text _priceText;
-        [SerializeField] private Transform _visualizer;
 
         public void Enable(FurnitureData furnitureData)
         {
@@ -33,7 +33,7 @@ namespace Immersed.UI.ARUI
         private void SetData(FurnitureData furnitureData)
         {
             _itemNameText.text = furnitureData.name;
-            _colorText.text = $"<color=#{ColorUtility.ToHtmlStringRGB(furnitureData.Color)}>color</color>";
+            _colorImage.color = furnitureData.Color;
             _weightText.text = furnitureData.Weight + "kg";
             _priceText.text = "$" + furnitureData.Price;
         }
