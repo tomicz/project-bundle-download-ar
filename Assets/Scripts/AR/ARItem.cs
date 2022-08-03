@@ -18,7 +18,6 @@ namespace Immersed.AR
         public void OnPointerSelected(Vector2 inputPosition)
         {
             _arContentPlacerController.SetItem(transform);
-            _arContentPlacerController.Enable();
         }
     }
 }
