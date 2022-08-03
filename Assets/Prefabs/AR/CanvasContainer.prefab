@@ -77,8 +77,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotateObject: {fileID: 1096572374}
-  _dragThreshold: 30
-  _rotationSpeed: 200
+  _dragThreshold: 100
+  _rotationSpeed: 50
 --- !u!1 &1194800298016367743
 GameObject:
   m_ObjectHideFlags: 0
