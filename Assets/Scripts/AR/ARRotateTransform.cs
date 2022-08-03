@@ -39,11 +39,11 @@ namespace Immersed.AR
         {
             if (rotateRight)
             {
-                transform.Rotate(new Vector3(0, _rotationSpeed * Time.deltaTime, 0));
+                transform.Rotate(new Vector3(0, -_rotationSpeed * Time.deltaTime, 0));
             }
             else
             {
-                transform.Rotate(new Vector3(0, -_rotationSpeed * Time.deltaTime, 0));
+                transform.Rotate(new Vector3(0, _rotationSpeed * Time.deltaTime, 0));
             }
         }
     }

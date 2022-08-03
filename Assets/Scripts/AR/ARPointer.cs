@@ -19,7 +19,7 @@ namespace Immersed.AR
 
         private IARPointerEnter _onPointerEnter;
         private IARPointerExit _onPointerExit;
-        private IARPointerSelect _onPointerSelect;
+        private IARPointerSelect[] _onPointerSelect;
         private IARPointerDrag[] _onPointerDrag;
         private IARPointerUp _onPointerUp;
 
@@ -62,9 +62,12 @@ namespace Immersed.AR
 
         public void RegisterOnPointerSelected(Vector2 inputPosition)
         {
-            if(_onPointerSelect != null)
+            if(_onPointerSelect.Length > 0)
             {
-                _onPointerSelect.OnPointerSelected(inputPosition);
+                foreach (var pointer in _onPointerSelect)
+                {
+                    pointer.OnPointerSelected(inputPosition);
+                }
             }
         }
 
@@ -93,7 +96,7 @@ namespace Immersed.AR
             {
                 _onPointerEnter = _raycaster.target.GetComponent<IARPointerEnter>();
                 _onPointerExit = _raycaster.target.GetComponent<IARPointerExit>();
-                _onPointerSelect = _raycaster.target.GetComponent<IARPointerSelect>();
+                _onPointerSelect = _raycaster.target.GetComponents<IARPointerSelect>();
                 _onPointerDrag = _raycaster.target.GetComponents<IARPointerDrag>();
                 _onPointerUp = _raycaster.target.GetComponent<IARPointerUp>();
 

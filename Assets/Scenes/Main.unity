@@ -1421,18 +1421,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1791355498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1194800297662437028, guid: caf75ec0c42eb45b6afd702fa350c352,
+    type: 3}
+  m_PrefabInstance: {fileID: 935931371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1938281943 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1194800297662437029, guid: caf75ec0c42eb45b6afd702fa350c352,
     type: 3}
   m_PrefabInstance: {fileID: 935931371}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1791355498}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80859460281544e88b44059404cece62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1938281945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791355498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780c372166c7b43f9bf9ac9e908fac4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotateObject: {fileID: 1989505085}
+  _dragThreshold: 30
+  _rotationSpeed: 200
 --- !u!224 &1989505085 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1096572374, guid: caf75ec0c42eb45b6afd702fa350c352,
