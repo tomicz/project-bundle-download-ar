@@ -24,18 +24,18 @@ namespace Immersed.AR
 
         private void OnEnable()
         {
-            _shop.OnItemBoughtEvent += HandleOnItemBoughtEvent;
+            _shop.OnItemBoughtEvent = HandleOnItemBoughtEvent;
             _contentPlacer.OnContentPlacedEvent += HandleOnBundlePlacedEvent;
         }
 
         private void OnDisable()
         {
-            _shop.OnItemBoughtEvent -= HandleOnItemBoughtEvent;
             _contentPlacer.OnContentPlacedEvent -= HandleOnBundlePlacedEvent;
         }
 
         public void HandleOnItemBoughtEvent(FurnitureData data)
         {
+            _shop.OnItemBoughtEvent -= HandleOnItemBoughtEvent;
             _furnitureData = data;
             _downloadHandler.gameObject.SetActive(true);
             _bundleDownloader.GetBundleObject(data.BundleName, OnBundleDownloaded, _bundlesParent);
@@ -57,6 +57,7 @@ namespace Immersed.AR
         private void HandleOnBundlePlacedEvent(Vector3 placedPosition)
         {
             _shopCanvasGroup.interactable = true;
+            _shop.OnItemBoughtEvent += HandleOnItemBoughtEvent;
         }
     }
 }
