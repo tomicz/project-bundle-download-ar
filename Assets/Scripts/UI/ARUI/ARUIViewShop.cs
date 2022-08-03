@@ -1,5 +1,4 @@
 using System;
-using Immersed.AR;
 using Immersed.Data;
 using UnityEngine;
 
@@ -49,8 +48,8 @@ namespace Immersed.UI.ARUI
 
         public void Buy()
         {
-            OnItemBoughtEvent?.Invoke(_currentSelectedItem);
             _canvasGroup.interactable = false;
+            OnItemBoughtEvent?.Invoke(_currentSelectedItem);
         }
 
         private void LoadCategories()
