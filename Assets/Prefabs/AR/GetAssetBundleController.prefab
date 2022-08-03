@@ -48,14 +48,6 @@ MonoBehaviour:
   _shop: {fileID: 0}
   _shopCanvasGroup: {fileID: 0}
   _contentPlacer: {fileID: 0}
-  _arPointer: {fileID: 0}
-  _raycastDebugger: {fileID: 0}
-  _groundMask:
-    serializedVersion: 2
-    m_Bits: 64
-  _interactableMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!114 &2779098793964808871
 MonoBehaviour:
   m_ObjectHideFlags: 0

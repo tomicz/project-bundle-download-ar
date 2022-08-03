@@ -47,8 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 0}
   _arPointer: {fileID: 0}
+  _arRaycastDebugger: {fileID: 0}
   _arItemContainerController: {fileID: 889504249366170255}
   _uiViewConfirmAction: {fileID: 0}
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _interactableMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &889504249366170241
 GameObject:
   m_ObjectHideFlags: 0

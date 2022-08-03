@@ -1,4 +1,5 @@
 using System;
+using Immersed.Debugging;
 using Immersed.UI;
 using UnityEngine;
 
@@ -11,8 +12,11 @@ namespace Immersed.AR
         [Header("Dependencies")]
         [SerializeField] private InputManager _inputManager;
         [SerializeField] private ARPointer _arPointer;
+        [SerializeField] private ARRaycastDebugger _arRaycastDebugger;
         [SerializeField] private ARItemContainerController _arItemContainerController;
         [SerializeField] private UIViewConfirmAction _uiViewConfirmAction;
+        [SerializeField] private LayerMask _groundMask;
+        [SerializeField] private LayerMask _interactableMask;
 
         private bool _canPlaceContent = false;
         private Vector3 _hitPosition;
@@ -33,6 +37,10 @@ namespace Immersed.AR
 
         public void SetItem(Transform transform)
         {
+            Enable();
+            _arRaycastDebugger.enabled = false;
+            _arPointer.ShowRaycaster(false);
+            _arPointer.ChangeTarget(_groundMask);
             _arItemContainerController.GrabItem(transform);
         }
 
@@ -69,8 +77,12 @@ namespace Immersed.AR
 
         private void PlaceItemOntoGround()
         {
-            OnContentPlacedEvent?.Invoke(_hitPosition);
+            _arRaycastDebugger.enabled = true;
+            _arPointer.ShowRaycaster(true);
+            _arPointer.ChangeTarget(_interactableMask);
             _arItemContainerController.RemoveItem();
+            OnContentPlacedEvent?.Invoke(_hitPosition);
+            Disable();
         }
 
         private void ReturnPlacedItem()
