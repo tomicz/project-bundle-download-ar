@@ -66,22 +66,28 @@ namespace Immersed.AR
 
         public void RegisterOnPointerSelected(Vector2 inputPosition)
         {
-            if(_onPointerSelect.Length > 0)
+            if(_onPointerSelect?.Length > 0)
             {
                 foreach (var pointer in _onPointerSelect)
                 {
-                    pointer.OnPointerSelected(inputPosition);
+                    if(pointer != null)
+                    {
+                        pointer.OnPointerSelected(inputPosition);
+                    }
                 }
             }
         }
 
         public void RegisterOnPointerDrag(Vector2 inputPosition)
         {
-            if (_onPointerDrag.Length > 0)
+            if (_onPointerDrag?.Length > 0)
             {
                 foreach (var pointer in _onPointerDrag)
                 {
-                    pointer.OnPointerDrag(inputPosition);
+                    if(pointer != null)
+                    {
+                        pointer.OnPointerDrag(inputPosition);
+                    }
                 }
             }
         }

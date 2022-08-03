@@ -24,7 +24,7 @@ namespace Immersed.AR
 
         private void OnEnable()
         {
-            _shop.OnItemBoughtEvent = HandleOnItemBoughtEvent;
+            _shop.OnItemBoughtEvent -= HandleOnItemBoughtEvent;
             _contentPlacer.OnContentPlacedEvent += HandleOnBundlePlacedEvent;
         }
 
@@ -57,7 +57,7 @@ namespace Immersed.AR
         private void HandleOnBundlePlacedEvent(Vector3 placedPosition)
         {
             _shopCanvasGroup.interactable = true;
-            _shop.OnItemBoughtEvent += HandleOnItemBoughtEvent;
+            _shop.OnItemBoughtEvent = HandleOnItemBoughtEvent;
         }
     }
 }
