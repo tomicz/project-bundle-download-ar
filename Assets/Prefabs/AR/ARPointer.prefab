@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &36256662
 Transform:
   m_ObjectHideFlags: 0
@@ -180,9 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rayLength: 10
-  _whatIsHitMask:
-    serializedVersion: 2
-    m_Bits: 64
   _lineRenderer: {fileID: 36256663}
 --- !u!114 &4279305826765842592
 MonoBehaviour:
