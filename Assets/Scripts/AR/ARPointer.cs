@@ -10,7 +10,6 @@ namespace Immersed.AR
 
         [Header("Raycast properties")]
         [SerializeField] private float _rayLength = 10f;
-        [SerializeField] private LayerMask _whatIsHitMask;  
 
         [Header("Dependencies")]
         [SerializeField] private LineRenderer _lineRenderer;    
@@ -26,6 +25,7 @@ namespace Immersed.AR
 
         private bool _hasEnteredInteraction = false;
         private Vector3 _hitPosition;
+        private LayerMask _whatIsHitMask;  
 
         private void Awake()
         {
